@@ -1,0 +1,26 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "TXT 4.0: Upload + Compile",
+      "type": "shell",
+      "command": "ssh ft@192.168.7.2 'mkdir -p ~/workspaces/cpp'; scp \"${workspaceFolder}/main.cpp\" ft@192.168.7.2:~/workspaces/cpp/main.cpp; if ($LASTEXITCODE -eq 0) { ssh ft@192.168.7.2 'cd ~/workspaces/cpp; g++ main.cpp -o main -lTxtControlLib' }",
+      "options": {
+        "shell": {
+          "executable": "powershell.exe",
+          "args": [
+            "-NoProfile",
+            "-ExecutionPolicy",
+            "Bypass",
+            "-Command"
+          ]
+        }
+      },
+      "problemMatcher": [],
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      }
+    }
+  ]
+}
